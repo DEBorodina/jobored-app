@@ -11,6 +11,7 @@
     "test": "echo no tests yet"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.21.4",
     "@emotion/react": "^11.11.0",
     "@fontsource/inter": "^5.0.1",
     "@fontsource/poppins": "^5.0.1",
