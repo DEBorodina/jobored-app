@@ -1,43 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { useAppSelector } from "../../hooks/redux";
-import { addToFavorites, deleteFromFavorites, getFavorites } from "../../utils/localStorage";
-import Empty from "../Empty";
-import VacancyCard from "../VacancyCard";
+import { ERROR_MESSAGES } from '@/constants/errorMessages';
+import { useAppSelector } from '@/hooks';
+import { FavoritesService } from '@/utils/FavoritesService';
 
-const VacanciesBlock: React.FC= () => {
-    const vacancies = useAppSelector(state => state.vacancyReducer.vacancies);
+import Empty from '../Empty';
+import { VacancyCard } from '../VacancyCard';
 
-    const [favorites, setFavorites] = useState<number[]>([]);
-    
-    useEffect(() => {
-        const favoritesFromLocalStorage = getFavorites();
-        setFavorites(favoritesFromLocalStorage);
-    }, [])
+export const VacanciesBlock: React.FC = () => {
+  const [favorites, setFavorites] = useState<number[]>([]);
 
-    const updateFavorites = (key: number) => {
-        if(favorites.includes(key)){
-            setFavorites(deleteFromFavorites(key));
-        } else {
-            setFavorites(addToFavorites(key));
-        }
+  const vacancies = useAppSelector((state) => state.vacancyReducer.vacancies);
+
+  const updateFavorites = (key: number) => {
+    if (favorites.includes(key)) {
+      setFavorites(FavoritesService.deleteFromFavorites(key));
+    } else {
+      setFavorites(FavoritesService.addToFavorites(key));
     }
+  };
 
-    return (
-        <>
-         {vacancies.length ?  
-             vacancies.map((vacancy) => 
-                <VacancyCard 
-                    isFavorite={favorites.includes(vacancy.id)} 
-                    updateFavorites={updateFavorites} 
-                    vacancy={vacancy} 
-                    key={vacancy.id}
-                    main={false}
-                    />)
-         : <Empty message={'Упс, ничего не найдено!'}/>
-         }  
-        </>           
-    )
-}
+  useEffect(() => {
+    const favoritesFromLocalStorage = FavoritesService.getFavorites();
+    setFavorites(favoritesFromLocalStorage);
+  }, []);
 
-export default VacanciesBlock;
+  return (
+    <>
+      {vacancies.length ? (
+        vacancies.map((vacancy) => (
+          <VacancyCard
+            isFavorite={favorites.includes(vacancy.id)}
+            updateFavorites={updateFavorites}
+            vacancy={vacancy}
+            key={vacancy.id}
+            main={false}
+          />
+        ))
+      ) : (
+        <Empty message={ERROR_MESSAGES.NOTHING_FOUND} />
+      )}
+    </>
+  );
+};

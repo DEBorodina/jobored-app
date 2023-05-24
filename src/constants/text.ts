@@ -1,3 +1,16 @@
 export enum TEXT {
   SEARCH = 'Поиск Вакансий',
+  ADD_VACANCY_NAME = 'Введите название вакансии',
+  SEARCH_BUTTON = 'Поиск',
+  LOADING = 'Идет загрузка...',
+  CHOSEN_CATEGORY = 'Выберете отрасль',
+  FILTERS = 'Фильтры',
+  REMOVE = 'Сбросить все',
+  CATEGORY = 'Отрасль',
+  SALARY = 'Оклад',
+  SUBMIT = 'Применить',
+  FAVORITES = 'Избранное',
+  JOBORED = 'Jobored',
+  FROM = 'От',
+  TO = 'До',
 }

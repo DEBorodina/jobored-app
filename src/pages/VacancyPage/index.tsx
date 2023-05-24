@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Service } from '@/api';
 import Empty from '@/components/Empty';
-import Loader from '@/components/Loader';
-import VacancyCard from '@/components/VacancyCard';
-import VacancyDescription from '@/components/VacancyDescription';
+import { Loader } from '@/components/Loader';
+import { VacancyCard } from '@/components/VacancyCard';
+import { VacancyDescription } from '@/components/VacancyDescription';
 import { ERROR_MESSAGES } from '@/constants/errorMessages';
-import Service from '@/service';
 import { FullVacancy } from '@/types';
 import { FavoritesService } from '@/utils/FavoritesService';
 

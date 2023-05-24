@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import { Service } from '@/api';
 import { ERROR_MESSAGES } from '@/constants/errorMessages';
 import { ROUTE_NAMES } from '@/constants/routesNames';
 import { TEXT } from '@/constants/text';
-import Service from '@/service';
 import { Vacancy } from '@/types';
 import { FavoritesService } from '@/utils/FavoritesService';
 
 import Empty from '../Empty';
-import Loader from '../Loader';
-import Pagination from '../Pagination';
-import VacancyCard from '../VacancyCard';
+import { Loader } from '../Loader';
+import { Pagination } from '../Pagination';
+import { VacancyCard } from '../VacancyCard';
 import { Button } from './styles';
 
 const VACANCIES_PER_PAGE = 4;

@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { ROUTE_NAMES } from '../../constants/routesNames';
-import salaryFormater from '../../utils/salaryFormater';
-import LocationIcon from '../svg/LocationIcon';
-import StarIcon from '../svg/StartIcon';
+import { ICONS } from '@/constants/icons';
+import { ROUTE_NAMES } from '@/constants/routesNames';
+import { salaryFormatter } from '@/utils/salaryFormatter';
+
+import StarIcon from '../StartIcon';
 import {
   Container,
   Description,
@@ -18,7 +19,7 @@ import {
 } from './styles';
 import { VacancyCardProps } from './types';
 
-const VacancyCard: React.FC<VacancyCardProps> = ({
+export const VacancyCard: React.FC<VacancyCardProps> = ({
   isFavorite,
   updateFavorites,
   vacancy,
@@ -52,17 +53,15 @@ const VacancyCard: React.FC<VacancyCardProps> = ({
           </button>
         </Header>
         <Info>
-          <Salary>{salaryFormater(vacancy)}</Salary>
+          <Salary>{salaryFormatter(vacancy)}</Salary>
           <Dot>•</Dot>
           <Description>{vacancy.type_of_work.title}</Description>
         </Info>
         <Location>
-          <LocationIcon />
+          {ICONS.LOCATION}
           <LocationText>{vacancy.town.title}</LocationText>
         </Location>
       </Container>
     </ThemeProvider>
   );
 };
-
-export default VacancyCard;

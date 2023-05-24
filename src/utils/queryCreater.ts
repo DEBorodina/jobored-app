@@ -1,23 +1,21 @@
-import { SearchState } from "../types";
+import { SearchState } from '../types';
 
-const queryCreater = (searchValues: SearchState) => {
-    let url = `published=1`;
-    if(searchValues.search) {
-        url += `&keyword=${searchValues.search}`;
-      }
+export const queryCreater = ({ search, from, to, category }: SearchState) => {
+  let url = `published=1`;
+  if (search) {
+    url += `&keyword=${search}`;
+  }
 
-      if(searchValues.from) {
-        url += `&payment_from=${searchValues.from}`;
-      }
+  if (from) {
+    url += `&payment_from=${from}`;
+  }
 
-      if(searchValues.to) {
-        url += `&payment_to=${searchValues.to}`;
-      }
+  if (to) {
+    url += `&payment_to=${to}`;
+  }
 
-      if(searchValues.category) {
-        url += `&catalogues=${searchValues.category}`;
-      }
-    return url;
-}
-
-export default queryCreater;
+  if (category) {
+    url += `&catalogues=${category}`;
+  }
+  return url;
+};
