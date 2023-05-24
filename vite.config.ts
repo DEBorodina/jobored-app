@@ -12,4 +12,7 @@ export default defineConfig({
     },
   },
   plugins: [svgr(), react(), babel()],
+  build: {
+    minify: false,
+  },
 });
