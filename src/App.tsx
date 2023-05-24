@@ -1,13 +1,19 @@
-import { Test } from '@/Test';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <>
-      <div>
-        <Test />
-      </div>
-    </>
-  );
-}
+import Header from './components/Header';
+import { Router } from './router/Router';
+import { setupStore } from './store/store';
+import Global from './styles/global';
 
-export default App;
+const store = setupStore();
+
+export const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Global />
+      <Header />
+      <Router />
+    </BrowserRouter>
+  </Provider>
+);

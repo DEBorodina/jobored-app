@@ -1,0 +1,13 @@
+export const COLORS = {
+    DARCK_GREY: '#343A40',
+    MEDIUM_GREY: '#ACADB9',
+    BRIGHT_GREY: '#7B7C88',
+    LIGHT_GREY: '#CED4DA',
+    WHITE_GREY: '#D5D6DC',
+    WHITE: '#FFFFFF',
+
+    LIGHT_BLUE: ' #DEECFF',
+    MEDIUM_BLUE: '#3B7CD3',
+    BRIGHT_BLUE: '#5E96FC',    
+    DARCK_BLUE: '#232134',
+}

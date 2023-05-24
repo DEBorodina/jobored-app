@@ -31,6 +31,7 @@ module.exports = {
        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
        '@typescript-eslint/no-var-requires': 'off',
         "react/jsx-uses-react": "off",
+        "react/prop-types":"off",
         "react/react-in-jsx-scope": "off",
         "simple-import-sort/exports": "error",
         'simple-import-sort/imports': [
